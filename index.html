@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        /* #list::-webkit-scrollbar{
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            width: 7px;
+            background-color: #D62929;
+        }
+        #list::-webkit-scrollbar-button {
+            height: 20%; /* vertical scrollbar height 
+        }    */
+        .icoin{
+            width: 35px;
+            height: 5px;
+            background-color: black;
+            margin: 6px 0;
+            position: absolute;
+            top:0px;
+            right: 0px;
+        }
+
+    </style>
+</head>
+<body style="background: url(moYqf.png);margin-top:2em">
+    <div style="position: relative; width: 902px; overflow: hidden; margin: auto;">
+        <canvas id="canvas" width="900px" height="600px" style="border: 1px solid black ; margin: auto;" ></canvas>
+        <div style="position: absolute; left:600px; width: 300px; height: 600px;background-color: #FFF; bottom: 7px;" id="table" data-type="0">
+           <div class="war" style="padding-top:15px; padding-bottom: 15px;position: relative;">
+            <button type="button" class="btn btn-primary fa" style="position: absolute;left: -39px;border-left: 0px; border-radius: 0px;top:0px;" onclick="moveLeftHiden()">&#xf07e;</button>
+                <div class="form-row">
+                    <div class="col-md-12" style="float: none;">
+                        <label for="validationCustom01">Số Lượng</label>
+                        <input type="number" class="form-control" id="numberObject" placeholder="Mời bạn nhập số lượng vào" value="0" style="margin-bottom: 10px;"   min="2" max="6"> 
+                        <button class="btn btn-primary" onclick="createNumberObject()">Xác nhận</button>
+                        <button class="btn btn btn-success" onclick="StartBoardGame()">Bắt đầu</button>
+                        <button class="btn btn-warning" onclick="restGameboard()" style="display: none;" id="rest">Chơi lại</button>                
+                    </div>
+                </div>
+                <div id="list" style="width: 300px; height: 450px;  margin-top: 10px; padding: 15px; overflow: auto;">
+                    <table class="table table-striped table-dark" >
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên</th>
+                          </tr>
+                        </thead>
+                        <tbody id ="listtable">
+                        </tbody>
+                      </table>
+                </div>
+           </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js"></script>
+<script src="index.js"></script>
+<script>
+    function moveLeftHiden(){
+        
+        let blockTable=document.getElementById("table");
+        let dataType=blockTable.getAttribute("data-type");
+        if(dataType==0){
+            blockTable.style.transition="all 1s";
+            blockTable.style.left="900px";
+            blockTable.setAttribute("data-type","1");
+        }
+        else {
+            blockTable.style.transition="all 1s";
+            blockTable.style.left="600px";
+            blockTable.setAttribute("data-type","0");
+        }
+    }
+</script>
+
+</html>
